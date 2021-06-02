@@ -1,6 +1,7 @@
 page('/', function() {
   page.redirect('/what-is-vegemite');
 });
+  let FirstTime = true;
 
 page('/:slug', function(context) {
   // This will match any value after the first / in the url. For example, if
@@ -19,6 +20,11 @@ page('/:slug', function(context) {
   newMenuItem.classList.add('is-active');
   newPage.classList.add('is-active');
 
+  if(FirstTime){
+    FirstTime = false;
+    return;
+  }
+  newPage.querySelector('h2').focus()
 });
 
 page({
